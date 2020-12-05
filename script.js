@@ -44,22 +44,43 @@ function generatePassword() {
   // User inputs whether to include uppercase letters in the password
   var uppercase = confirm('Would you like to include uppercase letters?');
 
-
+  // If so, uppercase letters get pushed into the cumulative character array
+  if (uppercase) {
+    upperArr.forEach(char => {
+      characterArr.push(char);
+    });
+  }
 
   // User inputs whether to include lowercase letters in the password
   var lowercase = confirm('Would you like to include lowercase letters?');
 
+  // If so, lowercase letters get pushed into the cumulative character array
+  if (lowercase) {
+    lowerArr.forEach(char => {
+      characterArr.push(char);
+    });
+  }
 
+  // User inputs whether to include numers in the password
+  var numbers = confirm('Would you like to include numbers?');
 
-  // User inputs whether to include lowercase letters in the password
-  var numners = confirm('Would you like to include numbers?');
-
-  
+  // If so, numbers get pushed into the cumulative character array
+  if (numbers) {
+    numArr.forEach(char => {
+      characterArr.push(char);
+    });
+  }
 
   // User inputs whether to include lowercase letters in the password
   var specialChars = confirm('Would you like to include special characters?');
 
-  
+  // If so, special characters get pushed into the cumulative character array
+  if (specialChars) {
+    specialArr.forEach(char => {
+      characterArr.push(char);
+    });
+  }
+
   console.log(characterArr);
 
 }
