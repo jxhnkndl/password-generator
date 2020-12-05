@@ -16,32 +16,11 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-// Generate Password
-function generatePassword() {
+// Character Arrays
+var upperArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
-  // Alphanumiric characters
-  var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+var lowerArr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
-  // Special non-alphanumeric characters
-  var specialChars = [' ', '!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
+var numArr = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
-  // Concatenate alphanumeric + special character arrays
-  var passwordArr = chars.split('').concat(specialChars);
-
-
-  var passwordLength = 0;
-
-  // Inform the user that they will be choosing password criteria
-  alert('The following questions will help you create a new, secure password.');
-
-  while (passwordLength < 8 || passwordLength > 128) {
-    passwordLength = parseInt(prompt('Please choose a number between 8 and 128 for the length of your password.'));
-  }
-
-  // Validate which type of characters the user wants in their password
-  var lowercase = confirm('Would you like to include lowercase letters?');
-  var uppercase = confirm('Would you like to include uppercase letters?');
-  var numbers = confirm('Would you like to include numbers?');
-  var specialChars = confirm('Would you like to include special characters?');
-
-}
+var specialArr = ['\u0020', '\u0021', '\u0022', '\u0023', '\u0024', '\u0025', '\u0026', '\u0027','\u0028', '\u0029', '\u002A', '\u002B', '\u002C', '\u002D', '\u002E', '\u002F', '\u003A','\u003B', '\u003C', '\u003D', '\u003E', '\u003F', '\u0040', '\u005B', '\u005C', '\u005D', '\u005E', '\u005F', '\u0060', '\u007B', '\u007C', '\u007D', '\u007E']
