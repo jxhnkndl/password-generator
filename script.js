@@ -38,7 +38,10 @@ function generatePassword() {
     passwordLength = parseInt(prompt('Please choose a number between 8 and 128 for the length of your password.'));
   }
 
-  console.log(passwordLength);
-  console.log(passwordArr);
+  // Validate which type of characters the user wants in their password
+  var lowercase = confirm('Would you like to include lowercase letters?');
+  var uppercase = confirm('Would you like to include uppercase letters?');
+  var numbers = confirm('Would you like to include numbers?');
+  var specialChars = confirm('Would you like to include special characters?');
 
 }
