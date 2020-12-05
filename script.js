@@ -52,25 +52,43 @@ function charChoices() {
   var numbers = confirm('Would you like to include numbers?');
   var special = confirm('Would you like to include special characters?');
 
-  // Raw user answer array
-  var userChoices = [uppercase, lowercase, numbers, special];
+  // Init user choice confirmed password arry
+  var passArr;
 
-  // Only character types user's wanted in their password
-  var confirmedChoices = [];
-
-  // Loopo through user choices; if choice is true, push index to array
-  for (var i = 0; i < userChoices.length; i++) {
-    if (userChoices[i]) {
-      confirmedChoices.push(i);
-    }
+  // Check for uppercase and add to password character array
+  if (uppercase) {
+    passArr = upperArr;
   }
 
-  return confirmedChoices;
-}
+  // Check for lowercase and add to previous character choices
+  if (!passArr && lowercase) {
+    passArr = lowerArr;
+  } else if (passArr && lowercase) {
+    passArr = passArr.concat(lowerArr);
+  } 
 
+  // Check for numbers and add to previous character choices
+  if (!passArr && numbers) {
+    passArr = numArr;
+  } else if (passArr && numbers) {
+    passArr = passArr.concat(numArr);
+  } 
+
+  // Check for special character and add to previous character choices
+  if (!passArr && special) {
+    passArr = specialArr;
+  } else if (passArr && special) {
+    passArr = passArr.concat(specialArr);
+  } 
+
+  return passArr;
+}
 
 // Generate Password
 function generatePassword() {
+
+  // Init final password variable
+  var password = "";
 
   // Initiate the password generation sequence
   alert('The following questions will ask you about your preferences before creating you a new, secure password.')
@@ -79,12 +97,10 @@ function generatePassword() {
   var length = passwordLength();
 
   // Capture array containing only characters user chose
-  var charArr = charChoices();
+  var passwordArr = charChoices();
 
-  console.log(charArr);
 
 }
-
 
 // Write password to the #password input
 function writePassword() {
@@ -94,7 +110,6 @@ function writePassword() {
   passwordText.value = password;
 
 }
-
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
