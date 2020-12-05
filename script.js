@@ -20,5 +20,26 @@ function writePassword() {
 
 }
 
+// Generate password based on user inputs
+function generatePassword() {
+ 
+  // Init password length variable
+  var passwordLength = 0;
+
+  // Initiate the password generation sequence
+  alert('The following questions will ask you about your preferences before creating you a new, secure password.')
+
+  // Capture user's desired password length from prompt
+  passwordLength = prompt('Please choose a number between 8 and 128 characters for your password.');
+
+  // Determine which type of characters the user intends to include
+  var uppercase = confirm('Would you like to include uppercase letters?');
+  var lowercase = confirm('Would you like to include lowercase letters?');
+  var numbers = confrim('Would you like to include numbers?');
+  var special = confirm('Would you like to include special characters?');
+
+
+}
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
