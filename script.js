@@ -28,4 +28,17 @@ function generatePassword() {
   // Concatenate alphanumeric + special character arrays
   var passwordArr = chars.split('').concat(specialChars);
 
+
+  var passwordLength = 0;
+
+  // Inform the user that they will be choosing password criteria
+  alert('The following questions will help you create a new, secure password.');
+
+  while (passwordLength < 8 || passwordLength > 128) {
+    passwordLength = parseInt(prompt('Please choose a number between 8 and 128 for the length of your password.'));
+  }
+
+  console.log(passwordLength);
+  console.log(passwordArr);
+
 }
