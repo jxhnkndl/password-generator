@@ -2,7 +2,7 @@
 var generateBtn = document.querySelector("#generate");
 
 
-// Character Arrays
+// Individual Character Arrays
 var upperArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
 var lowerArr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
@@ -10,6 +10,9 @@ var lowerArr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
 var numArr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 var specialArr = ["!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "\/", "]", "^", "_", "`", "{", "|", "}", "~"];
+
+// Summed Character Arrays
+var characters = [upperArr, lowerArr, numArr, specialArr];
 
 
 // Capture and validate user's desired password length
@@ -41,7 +44,7 @@ function passwordLength() {
 }
 
 // Capture user character choices
-function userChoices() {
+function charChoices() {
 
   // Determine which type of characters the user intends to include
   var uppercase = confirm('Would you like to include uppercase letters?');
@@ -49,8 +52,20 @@ function userChoices() {
   var numbers = confirm('Would you like to include numbers?');
   var special = confirm('Would you like to include special characters?');
 
-  // Return array containing true/false values for each character type
-  return [uppercase, lowercase, numbers, special];
+  // Raw user answer array
+  var userChoices = [uppercase, lowercase, numbers, special];
+
+  // Only character types user's wanted in their password
+  var confirmedChoices = [];
+
+  // Loopo through user choices; if choice is true, push index to array
+  for (var i = 0; i < userChoices.length; i++) {
+    if (userChoices[i]) {
+      confirmedChoices.push(i);
+    }
+  }
+
+  return confirmedChoices;
 }
 
 
@@ -62,6 +77,11 @@ function generatePassword() {
 
   // Capture user's desired password length
   var length = passwordLength();
+
+  // Capture array containing only characters user chose
+  var charArr = charChoices();
+
+  console.log(charArr);
 
 }
 
