@@ -6,12 +6,12 @@ var upperArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
 
 var lowerArr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
-var numArr = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+var numArr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 var specialArr = ["!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "\/", "]", "^", "_", "`", "{", "|", "}", "~"];
 
 // Array of character arrays for iteration methods
-var charArrays = [upperArr, lowerArr, numArr, spceialArr];
+var charArrays = [upperArr, lowerArr, numArr, specialArr];
 
 // Final Password Generation Array
 var passArr = [];
@@ -53,9 +53,16 @@ function generatePassword() {
   // User input array
   var userChoices = [uppercase, lowercase, numbers, special];
 
+  // Construct custom character array to generate password from
+  for (var i = 0; i < userChoices.length; i++) {
+    if (userChoices[i]) {
+      charArrays[i].forEach(char => {
+        passArr.push(char);
+      });
+    }
+  }
 
-
-  console.log(charArr);
+  console.log(passArr);
 }
 
 // Add event listener to generate button
