@@ -24,3 +24,20 @@ var lowerArr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
 var numArr = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
 var specialArr = ['\u0020', '\u0021', '\u0022', '\u0023', '\u0024', '\u0025', '\u0026', '\u0027','\u0028', '\u0029', '\u002A', '\u002B', '\u002C', '\u002D', '\u002E', '\u002F', '\u003A','\u003B', '\u003C', '\u003D', '\u003E', '\u003F', '\u0040', '\u005B', '\u005C', '\u005D', '\u005E', '\u005F', '\u0060', '\u007B', '\u007C', '\u007D', '\u007E']
+
+// Generate Password
+function generatePassword() {
+
+  // Init password length variable
+  var passwordLength = 0;
+
+  // Inform the user that they will be choosing password criteria
+  alert('The following questions will help you generate a new, secure password.');
+
+  while (passwordLength < 8 || passwordLength > 128) {
+    passwordLength = parseInt(prompt('Please choose a number between 8 and 128 for the length of your password.'));
+  }
+
+  console.log(passwordLength);
+
+}
