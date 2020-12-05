@@ -40,6 +40,19 @@ function passwordLength() {
   return parseInt(length);
 }
 
+// Capture user character choices
+function userChoices() {
+
+  // Determine which type of characters the user intends to include
+  var uppercase = confirm('Would you like to include uppercase letters?');
+  var lowercase = confirm('Would you like to include lowercase letters?');
+  var numbers = confirm('Would you like to include numbers?');
+  var special = confirm('Would you like to include special characters?');
+
+  // Return array containing true/false values for each character type
+  return [uppercase, lowercase, numbers, special];
+}
+
 
 // Generate Password
 function generatePassword() {
