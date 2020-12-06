@@ -47,10 +47,18 @@ function passwordLength() {
 function charChoices() {
 
   // Determine which type of characters the user intends to include
-  var uppercase = confirm('Would you like to include uppercase letters?');
-  var lowercase = confirm('Would you like to include lowercase letters?');
-  var numbers = confirm('Would you like to include numbers?');
-  var special = confirm('Would you like to include special characters?');
+  
+  do {
+    alert('Please select at least one character type to construct your password.');
+
+    // Capture user's character preferences
+    var uppercase = confirm('Would you like to include uppercase letters?');
+    var lowercase = confirm('Would you like to include lowercase letters?');
+    var numbers = confirm('Would you like to include numbers?');
+    var special = confirm('Would you like to include special characters?');
+  
+    // Continue this loop as long as the user has not selected at least one character type
+  } while ((!uppercase && !lowercase && !numbers && !special))
 
   // Init user choice confirmed password arry
   var passArr;
@@ -81,12 +89,15 @@ function charChoices() {
     passArr = passArr.concat(specialArr);
   } 
 
-  console.log(passArr);
-
   return passArr;
 }
 
-// Generate Password
+// Generate random number within range of 0 and length
+function randomNumber(length) {
+  return Math.floor(Math.random() * length);
+}
+
+// Generate password (primary application logic)
 function generatePassword() {
 
   // Init final password variable
@@ -104,13 +115,12 @@ function generatePassword() {
   // Loop through the number of characters chosen by the user
   for (var i = 0; i < length; i++) {
     // Generate a random number to pull a character from the password array
-    var randomIndex = Math.floor(Math.random() * passwordArr.length);
+    var randomIndex = randomNumber(passwordArr.length);
     // Concatenate the random character onto the final password
     password += passwordArr[randomIndex];
   }
 
   return password;
-
 }
 
 // Write password to the #password input
@@ -119,7 +129,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
   console.log(password);
 }
 
