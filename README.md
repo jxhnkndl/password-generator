@@ -4,7 +4,6 @@
 ![html](https://img.shields.io/github/languages/top/jxhnkndl/password-generator?style=plastic)
 ![commit](https://img.shields.io/github/last-commit/jxhnkndl/password-generator?style=plastic)
 
-
 ## Table of Contents
 * [Deployed Application](#deployed-application)
 * [Project Goals](#project-goals)
