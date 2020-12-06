@@ -81,6 +81,8 @@ function charChoices() {
     passArr = passArr.concat(specialArr);
   } 
 
+  console.log(passArr);
+
   return passArr;
 }
 
@@ -99,6 +101,15 @@ function generatePassword() {
   // Capture array containing only characters user chose
   var passwordArr = charChoices();
 
+  // Loop through the number of characters chosen by the user
+  for (var i = 0; i < length; i++) {
+    // Generate a random number to pull a character from the password array
+    var randomIndex = Math.floor(Math.random() * passwordArr.length);
+    // Concatenate the random character onto the final password
+    password += passwordArr[randomIndex];
+  }
+
+  return password;
 
 }
 
@@ -109,6 +120,7 @@ function writePassword() {
 
   passwordText.value = password;
 
+  console.log(password);
 }
 
 // Add event listener to generate button
